@@ -22,4 +22,3 @@ PROCESSED_TEST_DATA_PATH = os.path.join(PROCESSED_DIR,"processed_test.csv")
 MODEL_OUTPUT_PATH = "artifacts/models/lgbm_model.pkl"
 
 
-#sharp-quest-459013-d6
