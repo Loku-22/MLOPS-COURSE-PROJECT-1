@@ -20,7 +20,7 @@ pipeline{
             steps{
                 script{
                     echo 'Setting up our Virtual Environment and installing dependencies'
-                     sh '''
+                     bash '''
                      python -m venv ${VENV_DIR}
                      . $ {VENV_DIR}/bin/activate
                      pip install --upgrade pip
