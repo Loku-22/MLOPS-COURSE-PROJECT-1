@@ -20,10 +20,10 @@ pipeline{
             steps{
                 script{
                     echo 'Setting up our Virtual Environment and installing dependencies'
-                     bash '''
-                     python -m venv ${VENV_DIR}
-                     . $ {VENV_DIR}/bin/activate
-                     pip install --upgrade pip
+                     bat '''
+                     python -m venv %VENV_DIR%
+                     call %VENV_DIR%\\Scripts\\activate.bat
+                     python -m pip install --upgrade pip
                      pip install -e .
                       
                      '''
