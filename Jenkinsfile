@@ -20,13 +20,14 @@ pipeline{
             steps{
                 script{
                     echo 'Setting up our Virtual Environment and installing dependencies'
-                     sh '''
-                     python -m venv venv
-                     source venv/bin/activate
-                     python -m pip install --upgrade pip
-                     pip install -e .
-                      
-                     '''
+                    sh '''
+                    apt-get update
+                    apt-get install -y python3 python3-venv python3-pip
+                    python3 -m venv venv
+                    source venv/bin/activate
+                    pip install --upgrade pip
+                    pip install -e .
+                '''
                 }
             }
         }
