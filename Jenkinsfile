@@ -1,9 +1,6 @@
 pipeline {
-    agent {
-        docker {
-            image 'python:3.10-slim'  // ✅ Uses Python pre-installed image
-        }
-    }
+    
+    agent any
 
     environment {
         VENV_DIR = 'venv'
