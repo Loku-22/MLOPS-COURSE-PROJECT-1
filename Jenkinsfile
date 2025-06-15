@@ -38,22 +38,24 @@ pipeline {
 
         stage ('Building and Pushing Docker images to GCR'){
             steps{
-                withCredentials([file(credentialsId : 'gcp-key', variable : "GOOGLE_APPLICATION_CREDIENTIALS")]){
+                withCredentials([file(credentialsId : 'gcp-key', variable : "GOOGLE_APPLICATION_CREDENTIALS")]){
                     script{
                     echo 'Building and Pushing Docker images to GCR..........'
                     }
                     sh '''
                     export PATH=$PATH:${GCLOUD_PATH}
 
-                    gcloud auth activate-service-account --key-file = $ {GOOGLE_APPLICATION_CREDIENTIALS}
+                    which gcloud || echo "gcloud not found"
 
-                    gcloud config set project $ {GCP_PROJECT}
+                    gcloud auth activate-service-account --key-file=${GOOGLE_APPLICATION_CREDENTIALS}
 
-                    gcloud auth configure-docker --quite
+                    gcloud config set project ${GCP_PROJECT}
+
+                    gcloud auth configure-docker --quiet
 
                     docker build -t gcr.io/${GCP_PROJECT}/ml-project:latest .
 
-                    docker push -t gcr.io/${GCP_PROJECT}/ml-project:latest 
+                    docker push gcr.io/${GCP_PROJECT}/ml-project:latest 
 
                     '''
                 }
