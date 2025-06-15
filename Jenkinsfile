@@ -4,9 +4,8 @@ pipeline {
     environment {
         VENV_DIR = 'venv'
         GCP_PROJECT = "sharp-quest-459013-d6"
-        GCLOUD_PATH = "C:/Program Files (x86)/Google/Cloud SDK/google-cloud-sdk/bin"
+        GCLOUD_PATH = "/var/jenkins_home/google-cloyd-sdk-bin"
     }
-
 
 
     stages{
