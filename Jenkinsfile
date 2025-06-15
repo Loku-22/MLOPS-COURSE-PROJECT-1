@@ -4,7 +4,7 @@ pipeline {
     environment {
         VENV_DIR = 'venv'
         GCP_PROJECT = "sharp-quest-459013-d6"
-        GCLOUD_PATH = "/var/jenkins_home/google-cloyd-sdk-bin"
+        GCLOUD_PATH = "/var/jenkins_home/google-cloud-sdk/bin"
     }
 
 
